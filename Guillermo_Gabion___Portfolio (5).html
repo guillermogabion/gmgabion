@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guillermo Gabion — Full Stack Software Engineer | AI &amp; Intelligent Applications</title>
+<!-- Typography: Newsreader (Editorial Serif) & Inter / Plus Jakarta Sans (Modern Editorial Grotesk) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#121317",
+            "surface-dim": "#121317",
+            "surface-container-lowest": "#0d0e12",
+            "surface-container-low": "#1a1b20",
+            "surface-container": "#1f1f24",
+            "surface-container-high": "#292a2e",
+            "surface-container-highest": "#343439",
+            "surface-bright": "#38393d",
+            "on-surface": "#e3e2e7",
+            "on-surface-variant": "#d5c4b4",
+            "outline": "#9d8e80",
+            "outline-variant": "#504539",
+            "primary": "#ffc684",
+            "primary-container": "#e5a962",
+            "on-primary-container": "#653d00",
+            "secondary": "#b9c8de",
+            "secondary-container": "#39485a",
+            "tertiary": "#a3d5ff",
+            "background": "#121317",
+            "on-background": "#e3e2e7"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "2xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Newsreader", "serif"],
+            "headline-md": ["Newsreader", "serif"],
+            "title-editorial": ["Newsreader", "serif"],
+            "display-hero": ["Newsreader", "serif"],
+            "display-hero-mobile": ["Newsreader", "serif"],
+            "body-lg": ["Inter", "Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Inter", "Plus Jakarta Sans", "sans-serif"],
+            "label-caps": ["Inter", "sans-serif"],
+            "caption": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "display-hero": ["72px", { "lineHeight": "82px", "letterSpacing": "-0.03em" }],
+            "display-hero-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em" }],
+            "headline-lg": ["46px", { "lineHeight": "54px", "letterSpacing": "-0.02em" }],
+            "headline-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em" }],
+            "headline-md": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em" }],
+            "title-editorial": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.005em" }],
+            "body-lg": ["18px", { "lineHeight": "29px" }],
+            "body-md": ["15px", { "lineHeight": "24px" }],
+            "caption": ["13px", { "lineHeight": "19px" }],
+            "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.12em" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 350, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0d0e12; }
+    ::-webkit-scrollbar-thumb { background: #292a2e; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #504539; }
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    /* Center all content on small screens */
+    @media (max-width: 767px) {
+      main [class*="flex"],
+      footer [class*="flex"] {
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center;
+      }
+      main [class*="grid"],
+      footer [class*="grid"] {
+        justify-items: center !important;
+        text-align: center;
+      }
+      main h1, main h2, main h3, main h4, main p, main blockquote, main li, main span, main a,
+      footer h1, footer h2, footer h3, footer h4, footer p, footer li, footer span, footer a {
+        text-align: center;
+      }
+      main [class*="max-w-"],
+      footer [class*="max-w-"] {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+      main form, main form * {
+        text-align: left;
+      }
+      main form button {
+        text-align: center;
+      }
+      #mobile-nav-panel {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen relative overflow-x-hidden font-body-md">
+<!-- Floating Glass Navigation -->
+<header class="fixed top-4 inset-x-0 mx-auto max-w-7xl w-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] lg:w-[calc(100%-4rem)] xl:w-[calc(100%-6rem)] rounded-xl z-50 bg-surface-container-lowest/85 backdrop-blur-md border border-outline-variant/25 shadow-2xl shadow-surface-container-lowest/80 px-4 md:px-6 py-3 transition-all duration-200">
+<div class="flex justify-between items-center w-full">
+<!-- Monograph Brand Anchor -->
+<a aria-label="Guillermo Gabion Homepage" class="flex items-center space-x-3 group" href="#hero">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-primary group-hover:border-primary/50 transition-colors">
+<span class="font-headline-md text-lg text-primary font-normal">G</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-base md:text-lg tracking-tight text-on-surface font-normal">Guillermo Gabion</span>
+<span class="font-label-caps text-[9px] text-outline uppercase tracking-wider hidden sm:block">Engineering &amp; Local AI</span>
+</div>
+</a>
+<!-- Smooth Jump Links -->
+<nav class="hidden md:flex items-center space-x-7">
+  <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors py-1" href="#works">Selected Works</a>
+  <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors py-1" href="#philosophy">Philosophy</a>
+  <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors py-1" href="#engineering">Engineering</a>
+  <a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors py-1" href="#journey">Journey</a>
+  <a class="font-label-caps text-label-caps uppercase tracking-widest text-primary transition-colors py-1" href="#contact">Contact</a>
+</nav>
+<!-- Action -->
+<div class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+  <a class="hidden sm:inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-on-surface text-surface-container-lowest font-body-md text-caption font-medium hover:bg-primary-container transition-all duration-200 active:scale-95 shadow-sm min-h-[44px]" href="#contact">
+    <span class="">Initiate Project</span>
+    <span class="material-symbols-outlined text-sm">north_east</span>
+  </a>
+  <button aria-expanded="false" aria-label="Toggle navigation menu" class="md:hidden w-11 h-11 rounded-lg bg-surface-container-high/60 border border-outline-variant/25 flex items-center justify-center text-on-surface flex-shrink-0" id="mobile-menu-btn" onclick="toggleMobileMenu()">
+    <span class="material-symbols-outlined text-xl" id="mobile-menu-icon">menu</span>
+  </button>
+</div>
+</div>
+<!-- Mobile Nav Panel -->
+<nav class="hidden md:hidden flex-col mt-3 pt-3 border-t border-outline-variant/15 space-y-1.5" id="mobile-nav-panel">
+<a class="flex items-center justify-between px-3 py-3.5 rounded-lg font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-high/40 active:bg-surface-container-high/60 transition-colors min-h-[44px]" href="#works" onclick="closeMobileMenu()">
+  <span>Selected Works</span>
+  <span class="material-symbols-outlined text-base opacity-50">chevron_right</span>
+</a>
+<a class="flex items-center justify-between px-3 py-3.5 rounded-lg font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-high/40 active:bg-surface-container-high/60 transition-colors min-h-[44px]" href="#philosophy" onclick="closeMobileMenu()">
+  <span>Philosophy</span>
+  <span class="material-symbols-outlined text-base opacity-50">chevron_right</span>
+</a>
+<a class="flex items-center justify-between px-3 py-3.5 rounded-lg font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-high/40 active:bg-surface-container-high/60 transition-colors min-h-[44px]" href="#engineering" onclick="closeMobileMenu()">
+  <span>Engineering</span>
+  <span class="material-symbols-outlined text-base opacity-50">chevron_right</span>
+</a>
+<a class="flex items-center justify-between px-3 py-3.5 rounded-lg font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container-high/40 active:bg-surface-container-high/60 transition-colors min-h-[44px]" href="#journey" onclick="closeMobileMenu()">
+  <span>Journey</span>
+  <span class="material-symbols-outlined text-base opacity-50">chevron_right</span>
+</a>
+<a class="flex items-center justify-between px-3 py-3.5 mt-1 rounded-lg font-label-caps text-label-caps uppercase tracking-widest text-surface-container-lowest bg-on-surface hover:bg-primary-container active:scale-[0.98] transition-all min-h-[44px]" href="#contact" onclick="closeMobileMenu()">
+  <span>Initiate Project</span>
+  <span class="material-symbols-outlined text-base">north_east</span>
+</a>
+</nav>
+</header>
+<!-- Mobile Nav Backdrop -->
+<div class="hidden fixed inset-0 bg-surface-container-lowest/70 backdrop-blur-sm z-40" id="mobile-nav-backdrop" onclick="closeMobileMenu()"></div>
+<!-- Main Canvas -->
+<main class="relative z-10 pt-28 md:pt-36">
+<!-- 1. HERO SECTION: Who I Am & Architectural Craft -->
+<section class="relative overflow-hidden max-w-7xl mx-auto px-6 lg:px-12 pt-6 pb-20 lg:pb-32 border-b border-outline-variant/15" id="hero">
+<!-- Ambient diffused warm amber glow backdrop -->
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[620px] h-[440px] bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<!-- Narrative Column -->
+<div class="lg:col-span-7 flex flex-col space-y-6">
+<div class="inline-flex items-center space-x-2.5 px-3 py-1.5 rounded-full bg-surface-container-high/80 border border-outline-variant/30 max-w-full">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse flex-shrink-0"></span>
+<span class="font-label-caps text-label-caps tracking-widest text-on-surface-variant uppercase">Full Stack Software Engineer | AI &amp; Intelligent Applications</span>
+</div>
+<h1 class="font-display-hero-mobile lg:font-display-hero text-display-hero-mobile lg:text-display-hero text-on-surface tracking-tight font-normal leading-[1.1]">
+            I build software that turns ideas into <span class="italic text-primary font-normal">working products.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Crafting resilient software architectures, intelligent applications, and civic platforms designed around real-world needs. With 5+ years of experience working remotely from the Philippines (GMT+8), I focus on practical engineering, thoughtful design, offline resilience, and technology that respects the people who use it.
+<div class="pt-3 flex flex-wrap items-center gap-4">
+<a class="inline-flex items-center space-x-2.5 px-6 py-3.5 rounded-lg bg-on-surface text-surface-container-lowest font-body-md font-medium hover:bg-primary-container transition-all duration-200 active:scale-95 shadow-md min-h-[44px]" href="#works">
+<span class="">Explore Selected Works</span>
+<span class="material-symbols-outlined text-lg">arrow_downward</span>
+</a>
+<a class="inline-flex items-center space-x-2 px-5 py-3.5 rounded-lg bg-surface-container-high/60 border border-on-surface/15 text-on-surface hover:border-primary/50 hover:text-primary transition-all duration-200 min-h-[44px]" href="#journey">
+<span class="">Read My Journey</span>
+<span class="material-symbols-outlined text-base">timeline</span>
+</a>
+<div class="flex items-center space-x-2 ml-1">
+<a aria-label="GitHub Profile" class="w-11 h-11 rounded-lg bg-surface-container-high/40 border border-outline-variant/25 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/40 transition-colors" href="https://github.com" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-xl">code</span>
+</a>
+<a aria-label="LinkedIn Profile" class="w-11 h-11 rounded-lg bg-surface-container-high/40 border border-outline-variant/25 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/40 transition-colors" href="https://linkedin.com" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-xl">link</span>
+</a>
+</div>
+</div>
+<!-- Micro Studio Metadata -->
+<div class="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 border-t border-outline-variant/15 max-w-lg">
+<div>
+<span class="block font-label-caps text-label-caps text-outline uppercase tracking-wider">Coordinates</span>
+<span class="font-body-md text-caption text-on-surface font-medium mt-1 block">Philippines (GMT+8)</span>
+</div>
+<div>
+<span class="block font-label-caps text-label-caps text-outline uppercase tracking-wider">Discipline</span>
+<span class="font-body-md text-caption text-on-surface font-medium mt-1 block">Full Stack &amp; Edge AI</span>
+</div>
+<div><span class="block font-label-caps text-label-caps text-outline uppercase tracking-wider">Availability</span>
+<span class="font-body-md text-caption text-primary font-medium mt-1 block flex items-center space-x-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+<span class="">Open to Inquiries / Collaborations</span>
+</span></div>
+</div>
+</div>
+<!-- Architectural Kinetic Harmony Visual: System Monograph No. 04 -->
+<div class="lg:col-span-5 relative flex justify-center items-center">
+<div class="relative w-full max-w-[440px] rounded-2xl bg-surface-container-low/80 border border-outline-variant/25 p-6 flex flex-col justify-between overflow-hidden shadow-2xl backdrop-blur-md group">
+<div class="absolute inset-0 bg-[radial-gradient(#504539_1px,transparent_1px)] [background-size:24px_24px] opacity-15"></div>
+<!-- Top Row: Editorial Monogram stamp & Mode Selector -->
+<div class="flex justify-between items-start z-10 pb-4 border-b border-outline-variant/15">
+<div>
+<span class="font-label-caps text-label-caps text-outline tracking-widest uppercase block">Architectural Studio</span>
+<span class="font-headline-md text-xl text-on-surface font-normal">System Monograph No. 04</span>
+</div>
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+</div>
+<!-- Focus Node Selector Buttons -->
+<div class="grid grid-cols-3 gap-1.5 my-4 z-10">
+<button class="hero-focus-btn active py-1.5 px-2 rounded bg-surface-container border border-primary/40 text-primary font-label-caps text-[10px] uppercase transition-all" onclick="setMonographFocus('web')">
+                Web &amp; Mobile
+              </button>
+<button class="hero-focus-btn py-1.5 px-2 rounded bg-surface-container-high/40 border border-outline-variant/20 text-on-surface-variant font-label-caps text-[10px] uppercase transition-all hover:border-outline-variant/40" onclick="setMonographFocus('offline')">
+                Offline Core
+              </button>
+<button class="hero-focus-btn py-1.5 px-2 rounded bg-surface-container-high/40 border border-outline-variant/20 text-on-surface-variant font-label-caps text-[10px] uppercase transition-all hover:border-outline-variant/40" onclick="setMonographFocus('silicon')">
+                Local Silicon
+              </button>
+</div>
+<!-- Center Visual Element: Kinetic Harmonic Visual -->
+<div class="relative my-2 py-6 flex items-center justify-center z-10 min-h-[220px]">
+<div class="w-52 h-52 rounded-full border border-outline-variant/30 flex items-center justify-center relative">
+<!-- Outer rotating orbit -->
+<div class="w-40 h-40 rounded-full border border-primary/25 flex items-center justify-center animate-spin" style="animation-duration: 35s;">
+<div class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_12px_#ffc684] absolute -top-1.5"></div>
+<div class="w-2 h-2 rounded-full bg-secondary/80 absolute -bottom-1"></div>
+</div>
+<!-- Intersecting telemetry ring -->
+<div class="w-28 h-28 rounded-full border border-dashed border-outline-variant/40 flex items-center justify-center relative">
+<div class="w-14 h-14 rounded-xl bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-primary shadow-inner">
+<span class="font-headline-md text-2xl italic" id="monograph-symbol">g</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Dynamic Monograph Description -->
+<div class="p-3.5 rounded-xl bg-surface-container/70 border border-outline-variant/20 z-10 mb-3" id="monograph-caption">
+<span class="font-label-caps text-[10px] text-primary uppercase block mb-1">Interplay: Tactile Interfaces</span>
+<p class="font-caption text-caption text-on-surface-variant leading-snug">
+                Client reactivity with zero layout shift, sub-16ms touch responses, and optimistic updates.
+              </p>
+</div>
+<!-- Bottom Row: Kinetic Core Principles -->
+<div class="pt-3 border-t border-outline-variant/20 z-10 flex justify-between items-center text-caption text-on-surface-variant">
+<span class="font-caption text-outline">Offline-First • Local AI • Web APIs</span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+<span class="">Active Model</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. SELECTED WORKS: Centerpiece Product Storytelling with Progressive Disclosure -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-32 border-b border-outline-variant/15" id="works">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<div class="inline-flex items-center space-x-2 mb-3">
+<span class="w-4 h-[1px] bg-primary"></span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Centerpiece Works</span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-normal">
+            Software built for human everyday realities.
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Deep-dive case studies spanning offline-first educational infrastructures, air-gapped language models, and high-volume civic platforms.
+        </p>
+</div>
+<!-- WORK 01: TEACHOS -->
+<article class="mb-24 rounded-2xl bg-surface-container-low border border-outline-variant/20 overflow-hidden shadow-2xl transition-all duration-300 hover:border-outline-variant/40">
+<div class="p-8 lg:p-12 border-b border-outline-variant/15"><div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<div class="lg:col-span-8">
+<div class="flex flex-wrap items-center gap-3 mb-4">
+<span class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-primary font-label-caps text-label-caps tracking-widest uppercase">Featured Project</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps tracking-widest uppercase">Teacher Productivity Platform</span>
+<span class="text-caption text-outline">Active Development • Beta Version 1.0.7+3</span>
+</div>
+<h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-normal mb-3">
+TeachOS: Software designed around the everyday workflow of teachers.
+</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed">
+Philippine and provincial educators face repetitive administrative overhead tracking attendance, student records, and grades across fragmented spreadsheets. TeachOS streamlines daily attendance, grade calculations, and report generation into an intuitive mobile and tablet-friendly teacher workflow.
+</p>
+<div class="pt-4 flex items-center gap-3">
+<span class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 text-caption text-secondary font-mono flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-sm text-primary">lock_open</span>
+<span class="">Project Repository / Demo: Available upon request</span>
+</span>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col space-y-3 lg:items-end">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Architecture Stack</span>
+<div class="flex flex-wrap gap-2 lg:justify-end">
+  <span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">Flutter</span>
+  <span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">Dart</span>
+  <span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">C++</span>
+  <span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">Python</span>
+  <span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">Riverpod</span>
+  <span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">SQLite</span>
+  <span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">Local AI</span>
+  <span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">Llama.cpp</span>
+  <span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">GGUF</span>
+</div>
+</div>
+</div></div>
+<!-- Interactive Workflow Simulation Container -->
+<div class="bg-surface-container-lowest p-6 lg:p-10 border-b border-outline-variant/15">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-3">
+<div>
+<span class="font-label-caps text-label-caps text-outline tracking-wider uppercase block">5-Stage Workflow Progression</span>
+<span class="text-caption text-on-surface-variant">Classrooms → Students → Attendance → Grades → Statutory Reports</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-caption text-caption text-on-surface">Interactive System Simulation</span>
+</div>
+</div>
+<!-- Step Progression Navigator -->
+<div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
+<button class="teach-step-btn active p-3 rounded-lg border border-primary/50 bg-surface-container text-left transition-all" onclick="switchTeachStep(1)">
+<span class="block font-label-caps text-label-caps text-primary uppercase">Step 01</span>
+<span class="font-body-md text-caption font-medium text-on-surface">Classrooms</span>
+</button>
+<button class="teach-step-btn p-3 rounded-lg border border-outline-variant/20 bg-surface-container-low text-left hover:border-outline-variant/40 transition-all" onclick="switchTeachStep(2)">
+<span class="block font-label-caps text-label-caps text-outline uppercase">Step 02</span>
+<span class="font-body-md text-caption font-medium text-on-surface">Students</span>
+</button>
+<button class="teach-step-btn p-3 rounded-lg border border-outline-variant/20 bg-surface-container-low text-left hover:border-outline-variant/40 transition-all" onclick="switchTeachStep(3)">
+<span class="block font-label-caps text-label-caps text-outline uppercase">Step 03</span>
+<span class="font-body-md text-caption font-medium text-on-surface">Attendance</span>
+</button>
+<button class="teach-step-btn p-3 rounded-lg border border-outline-variant/20 bg-surface-container-low text-left hover:border-outline-variant/40 transition-all" onclick="switchTeachStep(4)">
+<span class="block font-label-caps text-label-caps text-outline uppercase">Step 04</span>
+<span class="font-body-md text-caption font-medium text-on-surface">Grades</span>
+</button>
+<button class="teach-step-btn p-3 rounded-lg border border-outline-variant/20 bg-surface-container-low text-left hover:border-outline-variant/40 transition-all" onclick="switchTeachStep(5)">
+<span class="block font-label-caps text-label-caps text-outline uppercase">Step 05</span>
+<span class="font-body-md text-caption font-medium text-on-surface">Reports</span>
+</button>
+</div>
+<!-- TeachOS Mode Tabs (Progressive Disclosure) -->
+<div class="flex items-center space-x-2 mb-4 border-b border-outline-variant/15 pb-2">
+<button class="teach-mode-tab active px-3 py-1.5 rounded-lg text-caption font-medium text-primary bg-surface-container border border-primary/30" onclick="switchTeachMode('evaluator')">
+              Live Evaluator Preview
+            </button>
+<button class="teach-mode-tab px-3 py-1.5 rounded-lg text-caption font-medium text-on-surface-variant hover:text-on-surface bg-surface-container-low" onclick="switchTeachMode('overview')">
+              Workflow Overview
+            </button>
+<button class="teach-mode-tab px-3 py-1.5 rounded-lg text-caption font-medium text-on-surface-variant hover:text-on-surface bg-surface-container-low" onclick="switchTeachMode('architecture')">
+              Architecture Deep Dive
+            </button>
+</div>
+<!-- Dynamic Stage Canvas -->
+<div class="p-6 md:p-8 rounded-xl bg-surface-container-low border border-outline-variant/25 transition-all" id="teach-stage-display">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-outline-variant/15 gap-4">
+<div>
+<span class="font-label-caps text-label-caps text-primary uppercase block">Classroom Context</span>
+<h4 class="font-title-editorial text-title-editorial text-on-surface font-normal">Grade 10 — Rizal Science &amp; Technology (44 Enrolled)</h4>
+</div>
+<div class="flex items-center space-x-3">
+<span class="px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/30 text-caption text-secondary flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-sm text-primary">wifi_off</span>
+<span class="">Local SQLite Mesh: 100% Operational</span>
+</span>
+</div>
+</div>
+<div class="mt-6 overflow-x-auto">
+<div class="space-y-3 font-caption text-caption min-w-[560px]">
+<div class="grid grid-cols-12 gap-2 text-outline font-label-caps uppercase pb-2">
+<span class="col-span-4 md:col-span-3">Item / Target</span>
+<span class="col-span-3 md:col-span-2">Identifier</span>
+<span class="col-span-2 md:col-span-3">Execution State</span>
+<span class="col-span-3 md:col-span-4 text-right">Metric / Verdict</span>
+</div>
+<div class="grid grid-cols-12 gap-2 py-2.5 px-3 rounded bg-surface-container/60 border border-outline-variant/15 items-center">
+<span class="col-span-4 md:col-span-3 font-medium text-on-surface">Maria Santos</span>
+<span class="col-span-3 md:col-span-2 text-outline">109283748291</span>
+<span class="col-span-2 md:col-span-3 text-secondary flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="">Present (Offline Synced)</span>
+</span>
+<span class="col-span-3 md:col-span-4 text-right font-medium text-primary">Quarter Final: 94.2%</span>
+</div>
+<div class="grid grid-cols-12 gap-2 py-2.5 px-3 rounded bg-surface-container/60 border border-outline-variant/15 items-center">
+<span class="col-span-4 md:col-span-3 font-medium text-on-surface">Joshua De la Cruz</span>
+<span class="col-span-3 md:col-span-2 text-outline">109283748292</span>
+<span class="col-span-2 md:col-span-3 text-secondary flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="">Present (Offline Synced)</span>
+</span>
+<span class="col-span-3 md:col-span-4 text-right font-medium text-primary">Quarter Final: 88.6%</span>
+</div>
+<div class="grid grid-cols-12 gap-2 py-2.5 px-3 rounded bg-surface-container/60 border border-outline-variant/15 items-center">
+<span class="col-span-4 md:col-span-3 font-medium text-on-surface">Angelica Reyes</span>
+<span class="col-span-3 md:col-span-2 text-outline">109283748293</span>
+<span class="col-span-2 md:col-span-3 text-secondary flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="">Excused (Medical)</span>
+</span>
+<span class="col-span-3 md:col-span-4 text-right font-medium text-primary">Quarter Final: 91.0%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Measurable Educational Metric Capsules -->
+<div class="p-8 lg:p-12 grid grid-cols-1 md:grid-cols-3 gap-6 bg-surface-container-low"><div class="border-l-2 border-primary/40 pl-5">
+<span class="font-headline-lg text-headline-md text-primary font-normal block">Classroom Flow</span>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider block mt-1">Reduced Administrative Drag</span>
+<p class="font-caption text-caption text-on-surface-variant mt-1.5">Consolidates attendance, score sheets, and quarterly forms into a single unified workspace.</p>
+</div>
+<div class="border-l-2 border-primary/40 pl-5">
+<span class="font-headline-lg text-headline-md text-on-surface font-normal block">Offline-Ready</span>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider block mt-1">Local Data Persistence</span>
+<p class="font-caption text-caption text-on-surface-variant mt-1.5">Built to function smoothly inside classroom environments without depending on uninterrupted broadband.</p>
+</div>
+<div class="border-l-2 border-primary/40 pl-5">
+<span class="font-headline-lg text-headline-md text-on-surface font-normal block">Responsive</span>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider block mt-1">Mobile &amp; Tablet Friendly</span>
+<p class="font-caption text-caption text-on-surface-variant mt-1.5">Tailored for handheld grading during class sessions, desk work, and rapid student lookups.</p>
+</div></div>
+</article>
+<!-- WORK 02: SCYTHO (Air-Gapped Academic Privacy & Local Intelligence) -->
+<article class="mb-24 rounded-2xl bg-surface-container-low border border-outline-variant/20 overflow-hidden shadow-2xl transition-all duration-300 hover:border-outline-variant/40">
+<div class="p-8 lg:p-12 border-b border-outline-variant/15"><div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<div class="lg:col-span-8">
+<div class="flex flex-wrap items-center gap-3 mb-4">
+<span class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-primary font-label-caps text-label-caps tracking-widest uppercase">AI Experimentation</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps tracking-widest uppercase">Local Assistant Research</span>
+<span class="text-caption text-outline">Concept &amp; Active Experimentation</span>
+</div>
+<h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-normal mb-3">
+Scytho: Local AI experimentation exploring intelligent on-device assistance.
+</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed">
+An exploratory research project investigating local, on-device AI for contextual guidance and student intervention suggestions without relying on external cloud APIs. Scytho tests the boundaries of running quantized models locally to preserve privacy and reduce latency.
+</p>
+<div class="pt-4 flex items-center gap-3">
+<span class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 text-caption text-secondary font-mono flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-sm text-primary">science</span>
+<span class="">Research Prototype • Code &amp; Prompts: Available upon request</span>
+</span>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col space-y-3 lg:items-end">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Exploration Stack</span>
+<div class="flex flex-wrap gap-2 lg:justify-end">
+<span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">llama.cpp</span>
+<span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">Local GGUF Models</span>
+<span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">Python</span>
+<span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">Electron + Vue</span>
+</div>
+</div>
+</div></div>
+<!-- Interactive Local Query Console Preview -->
+<div class="bg-surface-container-lowest p-6 lg:p-10 border-b border-outline-variant/15">
+<div class="max-w-4xl mx-auto rounded-xl bg-surface-container border border-outline-variant/30 overflow-hidden shadow-2xl">
+<!-- Simulated Window Bar -->
+<div class="px-4 py-3 bg-surface-container-high border-b border-outline-variant/20 flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center space-x-2">
+<span class="w-3 h-3 rounded-full bg-outline-variant/40"></span>
+<span class="w-3 h-3 rounded-full bg-outline-variant/40"></span>
+<span class="w-3 h-3 rounded-full bg-outline-variant/40"></span>
+<span class="text-caption text-on-surface font-medium pl-2">SCYTHO Sovereign Terminal — On-Device (Llama 3 8B Q4_K_M)</span>
+</div>
+<span class="inline-flex items-center space-x-1.5 text-primary text-caption bg-surface-container px-2.5 py-0.5 rounded border border-primary/30">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span class="font-label-caps text-[10px] uppercase">Air-Gap Locked: 0 Bytes Outbound</span>
+</span>
+</div>
+<!-- Dialogue Feed -->
+<div class="p-6 space-y-5">
+<!-- Prompt from Teacher -->
+<div class="flex items-start space-x-3.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-outline flex-shrink-0">
+<span class="material-symbols-outlined text-base">person</span>
+</div>
+<div class="rounded-lg bg-surface-container-high p-4 border border-outline-variant/15 max-w-2xl">
+<span class="block font-label-caps text-label-caps text-outline uppercase tracking-wider mb-1">Educator Diagnostic Query</span>
+<p class="font-body-md text-caption text-on-surface leading-relaxed">
+                    "Review Period 3 Math assessments for Section Aguinaldo. Highlight students dropping below 75% who previously passed, and suggest non-punitive intervention modules based on their homework gaps."
+                  </p>
+</div>
+</div>
+<!-- Air-Gapped Real-time Response -->
+<div class="flex items-start space-x-3.5">
+<div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-base">memory</span>
+</div>
+<div class="rounded-lg bg-surface-container-low p-4 border border-primary/30 max-w-2xl">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-wider">Local Vector Synthesis (14ms latency)</span>
+<span class="text-caption text-outline font-mono">127.0.0.1 (No WAN Transmission)</span>
+</div>
+<p class="font-body-md text-caption text-on-surface-variant leading-relaxed mb-3">
+                    Identified 2 students requiring targeted assistance without compromising confidential records:
+                  </p>
+<ul class="space-y-2.5 text-caption text-on-surface">
+<li class="flex items-start space-x-2">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+<span class=""><strong>Student #104:</strong> Dropped from 82% to 71% during Quadratic Equations. Concept breakdown occurred at radical simplification. Suggested: Remedial Peer Worksheet 4-B.</span>
+</li>
+<li class="flex items-start space-x-2">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+<span class=""><strong>Student #119:</strong> Missed 3 problem sets during typhoon disruption. Exam mark remains solid (88%) but incomplete ledger dragged composite. Recommended: 30-min guided makeup block.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Query Input Bar -->
+<div class="p-4 bg-surface-container-high/40 border-t border-outline-variant/20 flex items-center space-x-3">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="w-full bg-transparent border-0 text-caption text-on-surface focus:ring-0 cursor-default" readonly="" type="text" value="Ask anything across local student rosters... (Encrypted in VRAM &amp; SQLite-VSS)"/>
+<span class="px-2 py-1 rounded bg-surface-container text-outline text-caption font-mono">⌘K</span>
+</div>
+</div>
+</div>
+<!-- SCYTHO Highlights -->
+<div class="p-8 lg:p-12 grid grid-cols-1 md:grid-cols-3 gap-6 bg-surface-container-low"><div class="border-l-2 border-primary/40 pl-5">
+<span class="font-headline-lg text-headline-md text-on-surface font-normal block">Zero Egress</span>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider block mt-1">On-Device Privacy</span>
+<p class="font-caption text-caption text-on-surface-variant mt-1.5">Experimenting with isolated local execution so student and school context never leaves the host machine.</p>
+</div>
+<div class="border-l-2 border-primary/40 pl-5">
+<span class="font-headline-lg text-headline-md text-on-surface font-normal block">Quantized</span>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider block mt-1">Local Model Exploration</span>
+<p class="font-caption text-caption text-on-surface-variant mt-1.5">Evaluating open-weights 7B/8B GGUF models for lightweight edge inference on everyday developer laptops.</p>
+</div>
+<div class="border-l-2 border-primary/40 pl-5">
+<span class="font-headline-lg text-headline-md text-on-surface font-normal block">Context AI</span>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider block mt-1">Local Retrieval &amp; Prompts</span>
+<p class="font-caption text-caption text-on-surface-variant mt-1.5">Testing structured prompt pipelines and lightweight vector lookups to assist teacher diagnostic inquiries.</p>
+</div></div>
+</article>
+<!-- WORK 03: XIENTECH / SMART BARANGAY (Civic Infrastructure) -->
+<article class="rounded-2xl bg-surface-container-low border border-outline-variant/20 overflow-hidden shadow-2xl transition-all duration-300 hover:border-outline-variant/40">
+<div class="p-8 lg:p-12 border-b border-outline-variant/15"><div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<div class="lg:col-span-8">
+<div class="flex flex-wrap items-center gap-3 mb-4">
+<span class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-primary font-label-caps text-label-caps tracking-widest uppercase">Civic Application</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps tracking-widest uppercase">Smart Barangay Management System</span>
+<span class="text-caption text-outline">Project Prototype / Implementation</span>
+</div>
+<h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-normal mb-3">
+XienTech: Smart Barangay Management System for local community administration.
+</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed">
+Local barangay offices often handle high volumes of citizen records, certificates, and community blotters using disorganized paper logbooks. Smart Barangay replaces fragile manual logs with a clear, connected digital management workflow tailored specifically for local community staff and administrators.
+</p>
+<div class="pt-4 flex items-center gap-3">
+<span class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 text-caption text-secondary font-mono flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-sm text-primary">folder_open</span>
+<span class="">Project Prototype / Implementation Details: Available upon request</span>
+</span>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col space-y-3 lg:items-end">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Built With</span>
+<div class="flex flex-wrap gap-2 lg:justify-end">
+<span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">Next.js / Vue</span>
+<span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">Tailwind CSS</span>
+<span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">Relational Database</span>
+<span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/20 text-on-surface text-caption">QR Verification</span>
+</div>
+</div>
+</div></div>
+<!-- Interactive Service Module Tabs -->
+<div class="p-8 lg:p-12 bg-surface-container-lowest">
+<div class="flex items-center justify-between mb-6 pb-2 border-b border-outline-variant/15">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Civic Service Architecture Modules</span>
+<span class="text-caption text-outline">Click module to inspect live protocol</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+<button class="civic-module-card p-5 rounded-xl bg-surface-container-low border border-primary/40 text-left transition-all group" onclick="switchCivicModule('clearance')">
+<span class="material-symbols-outlined text-primary text-2xl mb-2">description</span>
+<h4 class="font-body-md font-semibold text-on-surface mb-1 group-hover:text-primary transition-colors">Civil Clearances</h4>
+<p class="font-caption text-caption text-on-surface-variant">Instant issuance with asymmetric public-key QR stamping.</p>
+</button>
+<button class="civic-module-card p-5 rounded-xl bg-surface-container-low border border-outline-variant/20 text-left transition-all group hover:border-outline-variant/40" onclick="switchCivicModule('health')">
+<span class="material-symbols-outlined text-primary text-2xl mb-2">medical_services</span>
+<h4 class="font-body-md font-semibold text-on-surface mb-1 group-hover:text-primary transition-colors">Health Center Triage</h4>
+<p class="font-caption text-caption text-on-surface-variant">Prioritizes maternal checkups and vulnerable seniors daily.</p>
+</button>
+<button class="civic-module-card p-5 rounded-xl bg-surface-container-low border border-outline-variant/20 text-left transition-all group hover:border-outline-variant/40" onclick="switchCivicModule('blotter')">
+<span class="material-symbols-outlined text-primary text-2xl mb-2">gavel</span>
+<h4 class="font-body-md font-semibold text-on-surface mb-1 group-hover:text-primary transition-colors">Incident Blotters</h4>
+<p class="font-caption text-caption text-on-surface-variant">Audit-logged dispute mediation preventing document tampering.</p>
+</button>
+<button class="civic-module-card p-5 rounded-xl bg-surface-container-low border border-outline-variant/20 text-left transition-all group hover:border-outline-variant/40" onclick="switchCivicModule('relief')">
+<span class="material-symbols-outlined text-primary text-2xl mb-2">verified_user</span>
+<h4 class="font-body-md font-semibold text-on-surface mb-1 group-hover:text-primary transition-colors">Community Relief</h4>
+<p class="font-caption text-caption text-on-surface-variant">Rapid headcount matching for emergency food supply distribution.</p>
+</button>
+</div>
+<!-- Dynamic Civic Detail Box -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/25 flex flex-col md:flex-row items-start md:items-center justify-between gap-4" id="civic-detail-view">
+<div>
+<span class="font-label-caps text-label-caps text-primary uppercase block mb-1">Active Module: Civil Clearances &amp; Residency Records</span>
+<p class="font-body-md text-caption text-on-surface-variant">
+                Digitally signed Ed25519 QR digests render forged barangay clearance certifications impossible while enabling instant offline verification by local law enforcement and employers.
+              </p>
+</div>
+<span class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 text-caption text-primary font-mono whitespace-nowrap">
+              Latency: &lt;45ms per issuance
+            </span>
+</div>
+</div>
+</article>
+</section>
+<!-- 3. PHILOSOPHY & ABOUT ME: A Conversation on Craft -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24 border-b border-outline-variant/15" id="more-projects"><div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4"><div><div class="inline-flex items-center space-x-2 mb-2"><span class="w-4 h-[1px] bg-primary"></span><span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Archive &amp; Extended Craft</span></div><h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-normal">More Projects</h2></div><p class="font-body-md text-body-md text-on-surface-variant max-w-md">Complementary applications, workflow systems, and client prototypes built with pragmatic architecture.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-6"><div class="rounded-xl bg-surface-container-low border border-outline-variant/20 p-6 flex flex-col justify-between hover:border-outline-variant/40 transition-colors"><div class="space-y-3"><div class="flex items-center justify-between"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Food Service &amp; POS</span><span class="font-label-caps text-[10px] text-primary bg-surface-container px-2 py-0.5 rounded border border-primary/25 uppercase">Full Stack</span></div><h3 class="font-title-editorial text-title-editorial text-on-surface font-normal">RestoApp</h3><p class="font-caption text-caption text-on-surface-variant leading-relaxed">An integrated restaurant ordering and table management application designed for responsive floor operations, kitchen ticket dispatch, and offline billing persistence during peak dinner rush.</p><div class="pt-2 border-t border-outline-variant/15 space-y-1.5 text-caption"><div class="flex justify-between items-center"><span class="text-outline font-label-caps text-[10px] uppercase">Role:</span><span class="text-on-surface font-medium">Sole Engineer &amp; Architect</span></div><div class="flex justify-between items-center"><span class="text-outline font-label-caps text-[10px] uppercase">Status:</span><span class="text-secondary">Prototype &amp; Testing</span></div></div></div><div class="pt-6"><div class="flex flex-wrap gap-1.5 mb-4"><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-caption">Vue 3</span><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-caption">Node.js</span><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-caption">PostgreSQL</span><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-caption">Tailwind</span></div><div class="pt-3 border-t border-outline-variant/15"><span class="text-caption text-outline font-mono flex items-center space-x-1.5"><span class="material-symbols-outlined text-xs text-primary">lock_open</span><span>[Repository / Demo: Available upon request]</span></span></div></div></div><div class="rounded-xl bg-surface-container-low border border-outline-variant/20 p-6 flex flex-col justify-between hover:border-outline-variant/40 transition-colors"><div class="space-y-3"><div class="flex items-center justify-between"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Creative &amp; Canvas</span><span class="font-label-caps text-[10px] text-primary bg-surface-container px-2 py-0.5 rounded border border-primary/25 uppercase">Frontend / WebGL</span></div><h3 class="font-title-editorial text-title-editorial text-on-surface font-normal">Glitch</h3><p class="font-caption text-caption text-on-surface-variant leading-relaxed">An experimental procedural canvas and generative art playground exploring real-time shader manipulations, audio-reactive buffers, and deterministic typography distortions in the browser.</p><div class="pt-2 border-t border-outline-variant/15 space-y-1.5 text-caption"><div class="flex justify-between items-center"><span class="text-outline font-label-caps text-[10px] uppercase">Role:</span><span class="text-on-surface font-medium">Lead Developer &amp; Design</span></div><div class="flex justify-between items-center"><span class="text-outline font-label-caps text-[10px] uppercase">Status:</span><span class="text-secondary">Active Experimentation</span></div></div></div><div class="pt-6"><div class="flex flex-wrap gap-1.5 mb-4"><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-caption">TypeScript</span><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-caption">HTML5 Canvas</span><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-caption">Web Audio</span><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-caption">Vite</span></div><div class="pt-3 border-t border-outline-variant/15"><span class="text-caption text-outline font-mono flex items-center space-x-1.5"><span class="material-symbols-outlined text-xs text-primary">science</span><span>[Repository / Demo: Available upon request]</span></span></div></div></div><div class="rounded-xl bg-surface-container-low border border-outline-variant/20 p-6 flex flex-col justify-between hover:border-outline-variant/40 transition-colors"><div class="space-y-3"><div class="flex items-center justify-between"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Healthcare &amp; Triage</span><span class="font-label-caps text-[10px] text-primary bg-surface-container px-2 py-0.5 rounded border border-primary/25 uppercase">Full Stack</span></div><h3 class="font-title-editorial text-title-editorial text-on-surface font-normal">ClinicQR</h3><p class="font-caption text-caption text-on-surface-variant leading-relaxed">A streamlined patient check-in and decentralized appointment queueing tool for small clinics, utilizing instantaneous QR tokenization to avoid physical contact and cramped waiting areas.</p><div class="pt-2 border-t border-outline-variant/15 space-y-1.5 text-caption"><div class="flex justify-between items-center"><span class="text-outline font-label-caps text-[10px] uppercase">Role:</span><span class="text-on-surface font-medium">Full Stack Developer</span></div><div class="flex justify-between items-center"><span class="text-outline font-label-caps text-[10px] uppercase">Status:</span><span class="text-secondary">Working Prototype</span></div></div></div><div class="pt-6"><div class="flex flex-wrap gap-1.5 mb-4"><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-caption">Next.js</span><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-caption">TypeScript</span><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-caption">SQLite WAL</span><span class="px-2 py-0.5 rounded bg-surface-container text-outline text-caption">QR Code API</span></div><div class="pt-3 border-t border-outline-variant/15"><span class="text-caption text-outline font-mono flex items-center space-x-1.5"><span class="material-symbols-outlined text-xs text-primary">lock_open</span><span>[Repository / Demo: Available upon request]</span></span></div></div></div></div></section><section class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-32 border-b border-outline-variant/15" id="philosophy">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+<!-- Voice Column -->
+<div class="lg:col-span-5 flex flex-col justify-between">
+<div>
+<div class="inline-flex items-center space-x-2 mb-3">
+<span class="w-4 h-[1px] bg-primary"></span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Philosophy &amp; Voice</span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-normal mb-8">
+              A conversation on craft, purpose, and restraint.
+            </h2>
+<div class="border-l-2 border-primary pl-6 my-8">
+<blockquote class="font-headline-md text-headline-md-mobile md:text-title-editorial italic text-on-surface leading-snug">
+                "I believe software should feel fast, resilient, and honest. The most rewarding systems are those that work quietly where people need them most — even when the network drops."
+              </blockquote>
+<span class="block mt-4 font-label-caps text-label-caps text-primary uppercase tracking-widest">— Guillermo Gabion</span>
+</div>
+</div>
+<!-- Studio Glimpse Card / Personal Workbench Sidebar -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/20 mt-4">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider block mb-3">Snapshot from the Workshop</span>
+<ul class="space-y-3 font-caption text-caption text-on-surface-variant">
+<li class="flex items-start space-x-2.5">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">location_on</span>
+<span class="">Operating from Philippines (GMT+8), crafting software with global standards.</span>
+</li>
+<li class="flex items-start space-x-2.5">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">menu_book</span>
+<span class="">Currently reading: <em>Designing Data-Intensive Applications</em> (Martin Kleppmann) &amp; Christopher Alexander's <em>The Timeless Way of Building</em>.</span>
+</li>
+<li class="flex items-start space-x-2.5">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">terminal</span>
+<span class="">Workbench favorites: Neovim, PostgreSQL, llama.cpp, SQLite WAL, Vue 3 reactivity.</span>
+</li>
+<li class="flex items-start space-x-2.5">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">lightbulb</span>
+<span class="">Guiding premise: Turning abstract architectural ideas into tangible, fault-tolerant tools for everyday dignity.</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- 3 Personal Pillars -->
+<div class="lg:col-span-7 flex flex-col justify-center space-y-6"><div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/20 hover:border-outline-variant/40 transition-colors">
+<div class="flex items-center space-x-4 mb-3">
+<span class="font-headline-md text-headline-md text-primary font-normal">01</span>
+<h3 class="font-title-editorial text-title-editorial text-on-surface font-normal">Turning Ideas Into Working Software</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+I find real satisfaction in bridging the gap between an abstract product concept and a responsive, reliable tool. Building functional software requires pragmatism: choosing dependable frameworks, understanding the real-world operational context, and keeping feedback loops tight.
+</p>
+</div>
+<div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/20 hover:border-outline-variant/40 transition-colors">
+<div class="flex items-center space-x-4 mb-3">
+<span class="font-headline-md text-headline-md text-primary font-normal">02</span>
+<h3 class="font-title-editorial text-title-editorial text-on-surface font-normal">Practical Problem Solving Over Hype</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+Before writing complex code or adding layers of abstraction, I focus on what actually eliminates daily user friction. Whether designing a clean database schema, refactoring an API endpoint, or improving input responsiveness, clarity and simplicity always win.
+</p>
+</div>
+<div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/20 hover:border-outline-variant/40 transition-colors">
+<div class="flex items-center space-x-4 mb-3">
+<span class="font-headline-md text-headline-md text-primary font-normal">03</span>
+<h3 class="font-title-editorial text-title-editorial text-on-surface font-normal">Curiosity &amp; Applied Intelligence</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+Software engineering is an ongoing craft. I actively experiment with modern web paradigms, local machine learning models, and on-device AI workflows—continually exploring how new technologies can make everyday software faster, safer, and more capable.
+</p>
+</div></div>
+</div>
+</section>
+<!-- 4. ENGINEERING DEPTH: Interactive Systems Architecture -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-32 border-b border-outline-variant/15" id="engineering">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<div class="inline-flex items-center space-x-2 mb-3">
+<span class="w-4 h-[1px] bg-primary"></span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Systems Engineering</span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-normal">
+            Graceful architectural depth.
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          How I orchestrate client perception, intent routing, edge reasoning, and rock-solid relational persistence.
+        </p>
+</div>
+<!-- Interactive 4-Tier Topological Schematic -->
+<div class="rounded-2xl bg-surface-container-low border border-outline-variant/20 p-8 lg:p-12 mb-16 shadow-2xl">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-8 border-b border-outline-variant/15 gap-2">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">End-to-End Topology &amp; Zero-Leakage Data Flow</span>
+<span class="text-caption text-primary flex items-center space-x-1.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="">Hover or click layers to inspect protocol</span>
+</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative">
+<!-- Node 1 -->
+<div class="system-node p-6 rounded-xl bg-surface-container border border-outline-variant/20 hover:border-primary/50 transition-all cursor-pointer group" onclick="showNodeDetail('client')" onmouseenter="showNodeDetail('client')">
+<span class="font-label-caps text-label-caps text-primary uppercase block mb-2">Layer 01</span>
+<h4 class="font-body-md font-semibold text-on-surface group-hover:text-primary transition-colors">Client Interfaces</h4>
+<p class="font-caption text-caption text-on-surface-variant mt-2">Vue 3, TypeScript, Flutter, Tailwind. Optimistic updates with zero render blocking.</p>
+<div class="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between text-outline text-caption">
+<span class="">Latency</span>
+<span class="text-on-surface font-mono">&lt; 16ms frame</span>
+</div>
+</div>
+<!-- Node 2 -->
+<div class="system-node p-6 rounded-xl bg-surface-container border border-outline-variant/20 hover:border-primary/50 transition-all cursor-pointer group" onclick="showNodeDetail('gateway')" onmouseenter="showNodeDetail('gateway')">
+<span class="font-label-caps text-label-caps text-primary uppercase block mb-2">Layer 02</span>
+<h4 class="font-body-md font-semibold text-on-surface group-hover:text-primary transition-colors">Intent Gateway</h4>
+<p class="font-caption text-caption text-on-surface-variant mt-2">Laravel &amp; Node micro-routers. Strict JWT validation, semantic rate limits, request sanitize.</p>
+<div class="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between text-outline text-caption">
+<span class="">Throughput</span>
+<span class="text-on-surface font-mono">12k req/sec</span>
+</div>
+</div>
+<!-- Node 3 -->
+<div class="system-node p-6 rounded-xl bg-surface-container border border-outline-variant/20 hover:border-primary/50 transition-all cursor-pointer group" onclick="showNodeDetail('ai')" onmouseenter="showNodeDetail('ai')">
+<span class="font-label-caps text-label-caps text-primary uppercase block mb-2">Layer 03</span>
+<h4 class="font-body-md font-semibold text-on-surface group-hover:text-primary transition-colors">Local Inference</h4>
+<p class="font-caption text-caption text-on-surface-variant mt-2">llama.cpp runtime, GGUF quants, vector similarity. Zero WAN transmission.</p>
+<div class="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between text-outline text-caption">
+<span class="">Privacy</span>
+<span class="text-primary font-mono">100% Air-Gapped</span>
+</div>
+</div>
+<!-- Node 4 -->
+<div class="system-node p-6 rounded-xl bg-surface-container border border-outline-variant/20 hover:border-primary/50 transition-all cursor-pointer group" onclick="showNodeDetail('storage')" onmouseenter="showNodeDetail('storage')">
+<span class="font-label-caps text-label-caps text-outline uppercase block mb-2">Layer 04</span>
+<h4 class="font-body-md font-semibold text-on-surface group-hover:text-primary transition-colors">Persistence &amp; Sync</h4>
+<p class="font-caption text-caption text-on-surface-variant mt-2">PostgreSQL 16 master with distributed SQLite WAL replicas and CRDT conflict resolution.</p>
+<div class="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between text-outline text-caption">
+<span class="">Integrity</span>
+<span class="text-on-surface font-mono">ACID Guaranteed</span>
+</div>
+</div>
+</div>
+<!-- Node Inspection Dynamic Callout -->
+<div class="mt-6 p-5 rounded-lg bg-surface-container-high/60 border border-outline-variant/20 text-caption text-on-surface-variant flex flex-col sm:flex-row sm:items-center justify-between gap-3" id="node-inspector">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-primary text-xl flex-shrink-0">info</span>
+<span class="" id="node-inspector-text">Hover or select any architectural tier to inspect failover strategies, serialization mechanisms, and edge resilience protocols.</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider whitespace-nowrap">Protocol Inspector</span>
+</div>
+</div>
+<!-- Structured Capability Ecosystem (No Arbitrary Percentage Bars) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/15">
+<span class="font-label-caps text-label-caps text-primary uppercase block mb-3">Domain 01</span>
+<h4 class="font-headline-md text-headline-md-mobile text-on-surface font-normal mb-3">Web &amp; Interfaces</h4>
+<p class="font-caption text-caption text-on-surface-variant mb-4">Tactile responsive systems with strict accessibility compliance, sub-frame reactivity, and offline cache hydration.</p>
+<div class="flex flex-wrap gap-1.5 font-caption text-caption text-outline">
+<span class="px-2 py-0.5 rounded bg-surface-container">Vue 3</span>
+<span class="px-2 py-0.5 rounded bg-surface-container">TypeScript</span>
+<span class="px-2 py-0.5 rounded bg-surface-container">Next.js</span>
+<span class="px-2 py-0.5 rounded bg-surface-container">Tailwind CSS</span>
+</div>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/15">
+<span class="font-label-caps text-label-caps text-primary uppercase block mb-3">Domain 02</span>
+<h4 class="font-headline-md text-headline-md-mobile text-on-surface font-normal mb-3">Distributed Core</h4>
+<p class="font-caption text-caption text-on-surface-variant mb-4">Cleanly decoupled services, asynchronous workers, webhook delivery guarantees, and high-concurrency ingestion.</p>
+<div class="flex flex-wrap gap-1.5 font-caption text-caption text-outline">
+<span class="px-2 py-0.5 rounded bg-surface-container">Laravel</span>
+<span class="px-2 py-0.5 rounded bg-surface-container">Node.js</span>
+<span class="px-2 py-0.5 rounded bg-surface-container">REST / GraphQL</span>
+<span class="px-2 py-0.5 rounded bg-surface-container">Redis Queues</span>
+</div>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/15">
+<span class="font-label-caps text-label-caps text-primary uppercase block mb-3">Domain 03</span>
+<h4 class="font-headline-md text-headline-md-mobile text-on-surface font-normal mb-3">Edge &amp; Persistence</h4>
+<p class="font-caption text-caption text-on-surface-variant mb-4">Offline replication fabrics that handle spotty provincial telecom grids without throwing user validation errors.</p>
+<div class="flex flex-wrap gap-1.5 font-caption text-caption text-outline">
+<span class="px-2 py-0.5 rounded bg-surface-container">PostgreSQL</span>
+<span class="px-2 py-0.5 rounded bg-surface-container">SQLite WAL</span>
+<span class="px-2 py-0.5 rounded bg-surface-container">IndexedDB</span>
+<span class="px-2 py-0.5 rounded bg-surface-container">Prisma / Eloquent</span>
+</div>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/15">
+<span class="font-label-caps text-label-caps text-primary uppercase block mb-3">Domain 04</span>
+<h4 class="font-headline-md text-headline-md-mobile text-on-surface font-normal mb-3">Applied Intelligence</h4>
+<p class="font-caption text-caption text-on-surface-variant mb-4">Quantized on-device LLMs, local semantic retrieval engines, and deterministic schema outputs for production workflows.</p>
+<div class="flex flex-wrap gap-1.5 font-caption text-caption text-outline">
+<span class="px-2 py-0.5 rounded bg-surface-container">llama.cpp</span>
+<span class="px-2 py-0.5 rounded bg-surface-container">Ollama</span>
+<span class="px-2 py-0.5 rounded bg-surface-container">ChromaDB</span>
+<span class="px-2 py-0.5 rounded bg-surface-container">Instructor / JSON Mode</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. JOURNEY & EXPERIENCE: Chronological Trajectory -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-32 border-b border-outline-variant/15" id="journey">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<div class="inline-flex items-center space-x-2 mb-3">
+<span class="w-4 h-[1px] bg-primary"></span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Chronicle &amp; Trajectory</span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-normal">
+            The evolution of craft.
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          A cinematic progression from fundamental web craftsmanship to architecting sovereign offline and intelligent systems.
+        </p>
+</div>
+<!-- Narrative Timeline Rows -->
+<div class="divide-y divide-outline-variant/15 border-y border-outline-variant/15"><!-- SVENGENUITY Experience -->
+<div class="py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-start hover:bg-surface-container-low/40 transition-colors px-4 rounded-lg">
+<div class="md:col-span-3">
+<span class="font-headline-md text-headline-md-mobile text-primary font-normal">May 2025 – Present</span>
+<span class="block font-label-caps text-label-caps text-outline uppercase tracking-wider mt-1">Current Role</span>
+</div>
+<div class="md:col-span-4">
+<h3 class="font-title-editorial text-title-editorial text-on-surface font-normal">Mid-Level Full Stack Web Developer</h3>
+<span class="text-caption text-on-surface-variant block font-medium">SVENGENUITY, Inc. / SVEN HQ</span>
+<span class="text-caption text-outline">Core Product Architecture &amp; Engineering</span>
+</div>
+<div class="md:col-span-5">
+<p class="font-body-md text-caption text-on-surface-variant leading-relaxed">
+Focusing on core product architecture, modern full-stack web applications, component architecture, and collaborative engineering across product and technical teams.
+</p>
+</div>
+</div>
+<!-- Actimai Philippines Experience -->
+<div class="py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-start hover:bg-surface-container-low/40 transition-colors px-4 rounded-lg">
+<div class="md:col-span-3">
+<span class="font-headline-md text-headline-md-mobile text-on-surface font-normal">2023 – Apr 2025</span>
+<span class="block font-label-caps text-label-caps text-outline uppercase tracking-wider mt-1">Tenure</span>
+</div>
+<div class="md:col-span-4">
+<h3 class="font-title-editorial text-title-editorial text-on-surface font-normal">Web Application Engineer</h3>
+<span class="text-caption text-on-surface-variant block font-medium">Actimai Philippines Inc.</span>
+<span class="text-caption text-outline">Enterprise Web Systems &amp; APIs</span>
+</div>
+<div class="md:col-span-5">
+<p class="font-body-md text-caption text-on-surface-variant leading-relaxed">
+Engineered robust web application systems, API integrations, and client-facing digital tools. Maintained system reliability, code quality standards, and performant data exchanges.
+</p>
+</div>
+</div>
+<!-- Qonvex Technology Experience -->
+<div class="py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-start hover:bg-surface-container-low/40 transition-colors px-4 rounded-lg">
+<div class="md:col-span-3">
+<span class="font-headline-md text-headline-md-mobile text-outline font-normal">May 2021 – Dec 2022</span>
+<span class="block font-label-caps text-label-caps text-outline uppercase tracking-wider mt-1">Foundational Role</span>
+</div>
+<div class="md:col-span-4">
+<h3 class="font-title-editorial text-title-editorial text-on-surface font-normal">Fullstack Web Developer</h3>
+<span class="text-caption text-on-surface-variant block font-medium">Qonvex Technology Inc.</span>
+<span class="text-caption text-outline">Web Platforms &amp; Data Structures</span>
+</div>
+<div class="md:col-span-5">
+<p class="font-body-md text-caption text-on-surface-variant leading-relaxed">
+Developed responsive web applications, designed relational database schemas, and delivered full-stack web solutions across multiple client and internal software platforms.
+</p>
+</div>
+</div></div>
+</section>
+<!-- 6. THE STUDIO WORKSHOP: Active Workbench Experiments -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-32 border-b border-outline-variant/15">
+<div class="mb-12">
+<div class="inline-flex items-center space-x-2 mb-3">
+<span class="w-4 h-[1px] bg-primary"></span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">The Studio Workshop</span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-normal">
+          Active experiments on the workbench.
+        </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"><!-- Workbench 1: TeachOS -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/20 hover:border-outline-variant/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary">school</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<h4 class="font-body-md font-semibold text-on-surface mb-2">TeachOS</h4>
+<p class="font-caption text-caption text-on-surface-variant">Developing core teacher workflows, grading matrices, and daily attendance records optimized for mobile and tablet.</p>
+</div>
+<div class="pt-4 mt-4 border-t border-outline-variant/15 text-caption text-outline">
+Status: <span class="text-primary font-medium">Building — Core Workflow</span>
+</div>
+</div>
+<!-- Workbench 2: Scytho -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/20 hover:border-outline-variant/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary">psychology</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<h4 class="font-body-md font-semibold text-on-surface mb-2">Scytho Local AI</h4>
+<p class="font-caption text-caption text-on-surface-variant">Experimenting with local quantized models, on-device prompting, and offline diagnostic assistance without cloud APIs.</p>
+</div>
+<div class="pt-4 mt-4 border-t border-outline-variant/15 text-caption text-outline">
+Status: <span class="text-on-surface font-medium">Experimenting — Local Assistant</span>
+</div>
+</div>
+<!-- Workbench 3: XienTech -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/20 hover:border-outline-variant/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<h4 class="font-body-md font-semibold text-on-surface mb-2">XienTech / Smart Barangay</h4>
+<p class="font-caption text-caption text-on-surface-variant">Integrating clearance issuance, blotter logging, and citizen records into a cohesive community administrative tool.</p>
+</div>
+<div class="pt-4 mt-4 border-t border-outline-variant/15 text-caption text-outline">
+Status: <span class="text-on-surface font-medium">Building — Module Integration</span>
+</div>
+</div>
+<!-- Workbench 4: Local AI Workflows -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/20 hover:border-outline-variant/40 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<h4 class="font-body-md font-semibold text-on-surface mb-2">Local AI Workflows</h4>
+<p class="font-caption text-caption text-on-surface-variant">Exploring small quantized LLMs, llama.cpp integrations, and local developer tooling for everyday productivity.</p>
+</div>
+<div class="pt-4 mt-4 border-t border-outline-variant/15 text-caption text-outline">
+Status: <span class="text-on-surface font-medium">Exploring — Tooling &amp; Models</span>
+</div>
+</div></div>
+</section>
+<!-- 7. FINAL INVITATION / INITIATE PROJECT: Direct Inquiry Dialog -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-32 relative overflow-hidden" id="contact">
+<!-- Diffused ambient glow -->
+<div class="absolute bottom-0 right-1/4 w-[500px] h-[350px] bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+<div class="lg:col-span-6">
+<div class="inline-flex items-center space-x-2 mb-3">
+<span class="w-4 h-[1px] bg-primary"></span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Initiate Conversation</span>
+</div>
+<h2 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface font-normal mb-6">
+            Have an idea worth building?
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg leading-relaxed mb-8">
+            Whether you need to architect a resilient software foundation from scratch, bring intelligent edge applications to life, or consult on offline-first infrastructure, my desk is open.
+          </p>
+<!-- Direct Copy Pill (1-Click) -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/20 inline-flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 max-w-md w-full mb-8">
+<div>
+<span class="block font-label-caps text-label-caps text-outline uppercase tracking-wider">Direct Transmission</span>
+<span class="font-body-md text-body-md text-on-surface font-medium select-all">gabionguillermo@gmail.com</span>
+</div>
+<button class="px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/30 text-caption text-on-surface hover:text-primary transition-all flex items-center space-x-1.5 min-h-[44px]" id="copy-btn" onclick="copyEmailToClipboard()">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+<span class="" id="copy-btn-text">Copy Email</span>
+</button>
+</div>
+<!-- Social / Professional Channels -->
+<div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-on-surface-variant text-caption"><a class="hover:text-primary transition-colors flex items-center space-x-1.5 py-2" href="https://github.com/guillermogabion" rel="noopener noreferrer" target="_blank">
+<span class="">GitHub Profile</span>
+<span class="material-symbols-outlined text-xs">north_east</span>
+</a>
+<a class="hover:text-primary transition-colors flex items-center space-x-1.5 py-2" href="https://linkedin.com/in/guillermogabion" rel="noopener noreferrer" target="_blank">
+<span class="">LinkedIn Profile</span>
+<span class="material-symbols-outlined text-xs">north_east</span>
+</a>
+<a class="hover:text-primary transition-colors flex items-center space-x-1.5 py-2" href="mailto:gabionguillermo@gmail.com">
+<span class="">Send Email</span>
+<span class="material-symbols-outlined text-xs">mail</span>
+</a></div>
+</div>
+<!-- Direct Architectural Inquiry Form with Budget & Scope Selector -->
+<div class="lg:col-span-6 rounded-2xl bg-surface-container-low border border-outline-variant/20 p-8 lg:p-10 shadow-2xl">
+<form class="space-y-5" id="inquiry-form" onsubmit="handleInquirySubmit(event)">
+<div>
+<label class="block font-label-caps text-label-caps text-outline uppercase tracking-wider mb-2">Your Name &amp; Organization</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface placeholder-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md text-body-md" id="inquiry-name" placeholder="Elena Rostova — Horizon Labs" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-outline uppercase tracking-wider mb-2">Direct Email Address</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface placeholder-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md text-body-md" id="inquiry-email" placeholder="elena@horizonlabs.io" required="" type="email"/>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-caps text-label-caps text-outline uppercase tracking-wider mb-2">Nature of Inquiry</label>
+<select class="w-full px-4 py-3 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md text-caption" id="inquiry-nature">
+<option value="New Product Architecture">New Product Architecture</option>
+<option value="Applied Local AI / Air-Gap">Applied Local AI / Air-Gap</option>
+<option value="Offline-First Advisory">Offline-First Advisory</option>
+<option value="General Engineering">General Engineering</option>
+</select>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-outline uppercase tracking-wider mb-2">Target Scope &amp; Budget</label>
+<select class="w-full px-4 py-3 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md text-caption" id="inquiry-scope">
+<option value="Prototype Sprint (2–4 weeks)">Prototype Sprint (2–4 weeks)</option>
+<option value="Full Architectural Build (1–3 mos)">Full Architectural Build (1–3 mos)</option>
+<option value="Technical Advisory Retainer">Technical Advisory Retainer</option>
+<option value="Initial Exploration">Initial Exploration</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-outline uppercase tracking-wider mb-2">Project Brief &amp; Context</label>
+<textarea class="w-full px-4 py-3 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface placeholder-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md text-body-md resize-none" id="inquiry-message" placeholder="Describe the human problem, constraints, and timeline..." required="" rows="4"></textarea>
+</div>
+<button class="w-full py-4 rounded-lg bg-on-surface text-surface-container-lowest font-body-md font-medium hover:bg-primary-container transition-all duration-200 active:scale-98 flex items-center justify-center space-x-2 shadow-lg min-h-[48px]" type="submit">
+<span class="">Transmit Inquiry</span>
+<span class="material-symbols-outlined text-lg">send</span>
+</button>
+<div class="hidden text-center text-caption text-primary p-2 bg-surface-container rounded border border-primary/30" id="form-feedback">
+              Opening your email app with this inquiry addressed to gabionguillermo@gmail.com — just hit send.
+            </div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Editorial Monograph Footer -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/15 text-on-surface">
+<div class="w-full max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24 flex flex-col justify-between">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-outline-variant/15">
+<div class="md:col-span-5">
+<span class="font-headline-lg text-3xl md:text-headline-lg text-on-surface block mb-3 font-normal">Guillermo Gabion</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+            Full Stack Software Engineer &amp; Intelligent Applications Specialist. Handcrafting dignified digital instruments with architectural discipline.
+          </p>
+</div>
+<div class="md:col-span-7 flex flex-wrap justify-between gap-8">
+<div>
+<span class="block font-label-caps text-label-caps tracking-widest uppercase text-outline mb-4">Navigation Index</span>
+<ul class="space-y-2.5 font-body-md text-caption">
+<li class=""><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#story">Story</a></li>
+<li class=""><a class="text-primary underline decoration-primary underline-offset-4 hover:text-on-surface transition-colors" href="#works">Selected Works</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#philosophy">Philosophy</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#engineering">Technical Index</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#journey">Journey</a></li>
+</ul>
+</div>
+<div>
+<span class="block font-label-caps text-label-caps tracking-widest uppercase text-outline mb-4">Systems &amp; Dialect</span>
+<ul class="space-y-2.5 font-body-md text-caption text-on-surface-variant">
+<li class="">Local-First Protocols</li>
+<li class="">Quantized Inference (GGUF)</li>
+<li class="">Relational Integrity (PostgreSQL)</li>
+<li class="">Deterministic Tool-Calling</li>
+</ul>
+</div>
+<div>
+<span class="block font-label-caps text-label-caps tracking-widest uppercase text-outline mb-4">Colophon</span>
+<p class="font-body-md text-caption text-on-surface-variant max-w-[200px] leading-relaxed">
+              Typeset in Newsreader and Inter. Palette derived from obsidian basalt (#121317) and warm champagne amber (#e5a962).
+            </p>
+</div>
+</div>
+</div>
+<div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-caption text-on-surface-variant gap-4">
+<span class="">© 2025 Guillermo Gabion. Handcrafted with architectural precision &amp; modern systems.</span>
+<div class="flex items-center space-x-6">
+<span class="text-outline">Philippines (GMT+8)</span>
+<span class="text-primary flex items-center space-x-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+<span class="">All systems nominal</span>
+</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- Vanilla Script for Interactive Interactivity & Progressive Disclosures -->
+<script>
+    // Mobile Navigation Toggle
+    function toggleMobileMenu() {
+      const btn = document.getElementById('mobile-menu-btn');
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+      if (isExpanded) {
+        closeMobileMenu();
+      } else {
+        const panel = document.getElementById('mobile-nav-panel');
+        const icon = document.getElementById('mobile-menu-icon');
+        const backdrop = document.getElementById('mobile-nav-backdrop');
+        panel.classList.remove('hidden');
+        panel.classList.add('flex');
+        backdrop.classList.remove('hidden');
+        icon.textContent = 'close';
+        btn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeMobileMenu() {
+      const panel = document.getElementById('mobile-nav-panel');
+      const icon = document.getElementById('mobile-menu-icon');
+      const btn = document.getElementById('mobile-menu-btn');
+      const backdrop = document.getElementById('mobile-nav-backdrop');
+
+      panel.classList.add('hidden');
+      panel.classList.remove('flex');
+      backdrop.classList.add('hidden');
+      icon.textContent = 'menu';
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    // Close mobile menu on Escape, and if the viewport grows past the mobile breakpoint
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) closeMobileMenu();
+    });
+
+    // TeachOS Multi-Stage & Multi-View State
+    let currentTeachStep = 1;
+    let currentTeachMode = 'evaluator';
+
+    const teachStages = {
+      1: {
+        title: "Grade 10 — Rizal Science & Technology (44 Enrolled)",
+        context: "Classroom Context",
+        status: "Local SQLite Mesh: 100% Operational",
+        rows: [
+          { name: "Maria Santos", id: "109283748291", status: "Present (Offline Synced)", grade: "Quarter Final: 94.2%" },
+          { name: "Joshua De la Cruz", id: "109283748292", status: "Present (Offline Synced)", grade: "Quarter Final: 88.6%" },
+          { name: "Angelica Reyes", id: "109283748293", status: "Excused (Medical)", grade: "Quarter Final: 91.0%" }
+        ]
+      },
+      2: {
+        title: "Student Profile & Academic Health Dossier",
+        context: "Individual Record Audit",
+        status: "Zero-Latency Client Memory",
+        rows: [
+          { name: "Maria Santos", id: "LRN: 109283748291", status: "General Average: 93.8", grade: "Rank 1 of 44" },
+          { name: "Attendance Log", id: "98.4% Cumulative", status: "DepEd SF2 Validated", grade: "Status: Perfect" },
+          { name: "Extracurricular", id: "Math Olympiad Delegate", status: "Honors Eligible", grade: "Validated" }
+        ]
+      },
+      3: {
+        title: "Morning Rapid Attendance Rollcall (Biometric / Local Tap)",
+        context: "Daily Checkpoint Stream",
+        status: "Offline Ledger Buffer: Ready",
+        rows: [
+          { name: "Maria Santos", id: "07:14:22 AM", status: "Marked: Present", grade: "Gate Check 01" },
+          { name: "Joshua De la Cruz", id: "07:22:04 AM", status: "Marked: Present", grade: "Gate Check 01" },
+          { name: "Carlos Mendoza", id: "07:31:18 AM", status: "Marked: Tardy (Grace 5m)", grade: "Gate Check 02" }
+        ]
+      },
+      4: {
+        title: "Automated Transmutation Matrix & Rubric Assessment",
+        context: "DepEd Grading Order 31 Formatter",
+        status: "Postgres Sync Queue: Idle",
+        rows: [
+          { name: "Written Work (30%)", id: "Weight: 100pts", status: "Class Average: 89.2%", grade: "Computed" },
+          { name: "Performance Task (50%)", id: "Weight: 120pts", status: "Class Average: 91.4%", grade: "Computed" },
+          { name: "Quarterly Exam (20%)", id: "Weight: 50pts", status: "Class Average: 85.0%", grade: "Computed" }
+        ]
+      },
+      5: {
+        title: "One-Click DepEd Statutory School Forms (SF2, SF9, SF10)",
+        context: "Compliance & Archive Export",
+        status: "Cryptographic Digest Hash Generated",
+        rows: [
+          { name: "SF9 (Progress Report Card)", id: "Batch of 44 PDFs", status: "Rendered: 1.2s", grade: "Ready for Print" },
+          { name: "SF2 (Monthly Attendance Ledger)", id: "DepEd Verified Layout", status: "Rendered: 0.8s", grade: "Signed Locally" },
+          { name: "SF10 (Permanent Record)", id: "Encrypted Archive", status: "Synced to NVRAM", grade: "Archived" }
+        ]
+      }
+    };
+
+    function renderTeachView() {
+      const container = document.getElementById('teach-stage-display');
+      const stage = teachStages[currentTeachStep];
+
+      if (currentTeachMode === 'evaluator') {
+        let rowsHtml = '';
+        stage.rows.forEach(r => {
+          rowsHtml += `
+            <div class="grid grid-cols-12 gap-2 py-2.5 px-3 rounded bg-surface-container/60 border border-outline-variant/15 items-center">
+              <span class="col-span-4 md:col-span-3 font-medium text-on-surface">${r.name}</span>
+              <span class="col-span-3 md:col-span-2 text-outline">${r.id}</span>
+              <span class="col-span-2 md:col-span-3 text-secondary flex items-center space-x-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                <span>${r.status}</span>
+              </span>
+              <span class="col-span-3 md:col-span-4 text-right font-medium text-primary">${r.grade}</span>
+            </div>
+          `;
+        });
+
+        container.innerHTML = `
+          <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-outline-variant/15 gap-4">
+            <div>
+              <span class="font-label-caps text-label-caps text-primary uppercase block">${stage.context}</span>
+              <h4 class="font-title-editorial text-title-editorial text-on-surface font-normal">${stage.title}</h4>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/30 text-caption text-secondary flex items-center space-x-1.5">
+                <span class="material-symbols-outlined text-sm text-primary">wifi_off</span>
+                <span>${stage.status}</span>
+              </span>
+            </div>
+          </div>
+          <div class="mt-6 overflow-x-auto">
+          <div class="space-y-3 font-caption text-caption min-w-[560px]">
+            <div class="grid grid-cols-12 gap-2 text-outline font-label-caps uppercase pb-2">
+              <span class="col-span-4 md:col-span-3">Item / Target</span>
+              <span class="col-span-3 md:col-span-2">Identifier</span>
+              <span class="col-span-2 md:col-span-3">Execution State</span>
+              <span class="col-span-3 md:col-span-4 text-right">Metric / Verdict</span>
+            </div>
+            ${rowsHtml}
+          </div>
+          </div>
+        `;
+      } else if (currentTeachMode === 'overview') {
+        container.innerHTML = `
+          <div class="py-4">
+            <h4 class="font-title-editorial text-title-editorial text-on-surface font-normal mb-2">Human Centered Teacher Journey</h4>
+            <p class="font-body-md text-caption text-on-surface-variant mb-6 leading-relaxed">
+              Every stage is crafted to eradicate manual double-entry. Teachers enter marks once into the local offline SQLite database; the system transmutes scores according to DepEd Order 31 standards and stages encrypted diffs for automatic sync whenever WAN signals return.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-caption text-caption">
+              <div class="p-4 rounded-lg bg-surface-container border border-outline-variant/20">
+                <span class="font-label-caps text-primary block mb-1 uppercase">Instant Roster Load</span>
+                <p class="text-on-surface-variant">Under 10ms database lookup across thousands of historical student transcripts.</p>
+              </div>
+              <div class="p-4 rounded-lg bg-surface-container border border-outline-variant/20">
+                <span class="font-label-caps text-primary block mb-1 uppercase">Automated Transmutation</span>
+                <p class="text-on-surface-variant">Zero calculator errors; standard transmutation tables pre-computed on keystroke.</p>
+              </div>
+              <div class="p-4 rounded-lg bg-surface-container border border-outline-variant/20">
+                <span class="font-label-caps text-primary block mb-1 uppercase">Export Compliant PDFs</span>
+                <p class="text-on-surface-variant">Generates pixel-perfect SF2/SF9 batches without requiring cloud services.</p>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (currentTeachMode === 'architecture') {
+        container.innerHTML = `
+          <div class="py-4 space-y-4">
+            <h4 class="font-title-editorial text-title-editorial text-on-surface font-normal">Offline-First Replication Architecture</h4>
+            <p class="font-body-md text-caption text-on-surface-variant leading-relaxed">
+              TeachOS employs an embedded SQLite WAL database running in the local client application. When internet connectivity is detected, a bi-directional CRDT diff protocol reconciles changes against central PostgreSQL clusters using vector clocks to resolve any duplicate updates deterministically.
+            </p>
+            <div class="p-4 rounded-lg bg-surface-container font-mono text-caption text-primary border border-outline-variant/20 overflow-x-auto">
+              [Local SQLite WAL] &lt;--- Vector Clock Diff Stream ---&gt; [Laravel Edge Gateway] &lt;--- ACID Commit ---&gt; [PostgreSQL Master]
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function switchTeachStep(stepNum) {
+      currentTeachStep = stepNum;
+      const buttons = document.querySelectorAll('.teach-step-btn');
+      buttons.forEach((btn, index) => {
+        if (index + 1 === stepNum) {
+          btn.className = "teach-step-btn active p-3 rounded-lg border border-primary/50 bg-surface-container text-left transition-all";
+          btn.querySelector('span:first-child').className = "block font-label-caps text-label-caps text-primary uppercase";
+        } else {
+          btn.className = "teach-step-btn p-3 rounded-lg border border-outline-variant/20 bg-surface-container-low text-left hover:border-outline-variant/40 transition-all";
+          btn.querySelector('span:first-child').className = "block font-label-caps text-label-caps text-outline uppercase";
+        }
+      });
+      renderTeachView();
+    }
+
+    function switchTeachMode(mode) {
+      currentTeachMode = mode;
+      const tabs = document.querySelectorAll('.teach-mode-tab');
+      tabs.forEach(tab => {
+        if (tab.textContent.toLowerCase().includes(mode.toLowerCase().slice(0, 4))) {
+          tab.className = "teach-mode-tab active px-3 py-1.5 rounded-lg text-caption font-medium text-primary bg-surface-container border border-primary/30";
+        } else {
+          tab.className = "teach-mode-tab px-3 py-1.5 rounded-lg text-caption font-medium text-on-surface-variant hover:text-on-surface bg-surface-container-low";
+        }
+      });
+      renderTeachView();
+    }
+
+    // Hero Monograph Focus Nodes
+    const monographModes = {
+      web: {
+        symbol: "g",
+        title: "Interplay: Tactile Interfaces",
+        desc: "Client reactivity with zero layout shift, sub-16ms touch responses, and optimistic updates across Vue 3 and Flutter."
+      },
+      offline: {
+        symbol: "sqlite",
+        title: "Interplay: Offline Relational Core",
+        desc: "Embedded SQLite WAL replicas running locally with vector clock reconciliation against high-throughput PostgreSQL backends."
+      },
+      silicon: {
+        symbol: "llama",
+        title: "Interplay: On-Device Intelligent Silicon",
+        desc: "Quantized 4-bit neural execution executing entirely in unified memory with 0 bytes transmitted over external WAN."
+      }
+    };
+
+    function setMonographFocus(modeKey) {
+      const mode = monographModes[modeKey];
+      if (!mode) return;
+
+      const symbolElem = document.getElementById('monograph-symbol');
+      if (symbolElem) symbolElem.textContent = mode.symbol;
+
+      const captionElem = document.getElementById('monograph-caption');
+      if (captionElem) {
+        captionElem.innerHTML = `
+          <span class="font-label-caps text-[10px] text-primary uppercase block mb-1">${mode.title}</span>
+          <p class="font-caption text-caption text-on-surface-variant leading-snug">${mode.desc}</p>
+        `;
+      }
+
+      const buttons = document.querySelectorAll('.hero-focus-btn');
+      buttons.forEach(btn => {
+        if (btn.textContent.toLowerCase().includes(modeKey.slice(0, 3))) {
+          btn.className = "hero-focus-btn active py-1.5 px-2 rounded bg-surface-container border border-primary/40 text-primary font-label-caps text-[10px] uppercase transition-all";
+        } else {
+          btn.className = "hero-focus-btn py-1.5 px-2 rounded bg-surface-container-high/40 border border-outline-variant/20 text-on-surface-variant font-label-caps text-[10px] uppercase transition-all hover:border-outline-variant/40";
+        }
+      });
+    }
+
+    // Civic Module Inspection Tabs
+    const civicModules = {
+      clearance: {
+        title: "Civil Clearances & Residency Records",
+        desc: "Digitally signed Ed25519 QR digests render forged barangay clearance certifications impossible while enabling instant offline verification by local law enforcement and employers.",
+        stat: "Latency: <45ms per issuance"
+      },
+      health: {
+        title: "Primary Health Center Triage",
+        desc: "Smart queue arbitration organizes prenatal, geriatric, and emergency visits before clinic doors unlock, preventing 6 AM physical lineups under tropical weather.",
+        stat: "Wait time cut by 68%"
+      },
+      blotter: {
+        title: "Cryptographic Incident Blotters",
+        desc: "Tamper-evident audit logs protect vulnerable citizen mediation statements from unauthorized alteration between local peace sessions.",
+        stat: "100% Immutable Audit Trail"
+      },
+      relief: {
+        title: "Disaster Emergency Food Logistics",
+        desc: "Offline-capable biometric household verification during typhoon blackouts ensures emergency supplies reach verified families without duplicate allocation.",
+        stat: "Zero double-allocations logged"
+      }
+    };
+
+    function switchCivicModule(modKey) {
+      const mod = civicModules[modKey];
+      if (!mod) return;
+      const display = document.getElementById('civic-detail-view');
+      display.innerHTML = `
+        <div>
+          <span class="font-label-caps text-label-caps text-primary uppercase block mb-1">Active Module: ${mod.title}</span>
+          <p class="font-body-md text-caption text-on-surface-variant leading-relaxed">
+            ${mod.desc}
+          </p>
+        </div>
+        <span class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 text-caption text-primary font-mono whitespace-nowrap">
+          ${mod.stat}
+        </span>
+      `;
+
+      const cards = document.querySelectorAll('.civic-module-card');
+      cards.forEach(card => {
+        if (card.textContent.toLowerCase().includes(modKey.slice(0, 4))) {
+          card.classList.add('border-primary/40');
+          card.classList.remove('border-outline-variant/20');
+        } else {
+          card.classList.remove('border-primary/40');
+          card.classList.add('border-outline-variant/20');
+        }
+      });
+    }
+
+    // Technical Systems Node Inspector Hover
+    const nodeDetails = {
+      client: "Layer 01 (Client Interfaces): Employs Vue 3 reactivity primitives with optimistic DOM projections. Even when completely offline, interaction latency stays locked under 16ms.",
+      gateway: "Layer 02 (Intent Gateway): Micro-router with strict token-bucket rate limits and input sanitization before intent deserialization.",
+      ai: "Layer 03 (Local Inference): Embeds 4-bit llama.cpp binaries inside isolated native worker threads. Zero tokens or context history ever touch public network interfaces.",
+      storage: "Layer 04 (Persistence & Sync): Dual-database strategy pairing local SQLite WAL replicas with central PostgreSQL nodes via deterministic event syncing."
+    };
+
+    function showNodeDetail(layerKey) {
+      const inspectorText = document.getElementById('node-inspector-text');
+      if (nodeDetails[layerKey]) {
+        inspectorText.textContent = nodeDetails[layerKey];
+      }
+    }
+
+    // Email Copy Interaction
+    function copyEmailToClipboard() {
+      navigator.clipboard.writeText("gabionguillermo@gmail.com").then(() => {
+        const btnText = document.getElementById('copy-btn-text');
+        btnText.textContent = "Copied to Clipboard!";
+        setTimeout(() => {
+          btnText.textContent = "Copy Email";
+        }, 2500);
+      });
+    }
+
+    // Inquiry Form Submission — builds a mailto: link from the form fields
+    // and opens the visitor's own email client with everything pre-filled,
+    // addressed to gabionguillermo@gmail.com. This works with zero backend
+    // and zero third-party service, but it does require the visitor to have
+    // a mail client configured and to press Send themselves.
+    function handleInquirySubmit(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('inquiry-name').value.trim();
+      const email = document.getElementById('inquiry-email').value.trim();
+      const nature = document.getElementById('inquiry-nature').value;
+      const scope = document.getElementById('inquiry-scope').value;
+      const message = document.getElementById('inquiry-message').value.trim();
+
+      const recipient = "gabionguillermo@gmail.com";
+      const subject = `Project Inquiry: ${nature} — ${name}`;
+      const body =
+        `Name / Organization: ${name}\n` +
+        `Reply-to Email: ${email}\n` +
+        `Nature of Inquiry: ${nature}\n` +
+        `Target Scope & Budget: ${scope}\n\n` +
+        `Project Brief & Context:\n${message}`;
+
+      const mailtoUrl =
+        `mailto:${encodeURIComponent(recipient)}` +
+        `?subject=${encodeURIComponent(subject)}` +
+        `&body=${encodeURIComponent(body)}`;
+
+      // Open the visitor's mail client
+      window.location.href = mailtoUrl;
+
+      const feedback = document.getElementById('form-feedback');
+      feedback.classList.remove('hidden');
+      setTimeout(() => {
+        feedback.classList.add('hidden');
+      }, 8000);
+    }
+
+    // Initialize Default View
+    window.addEventListener('DOMContentLoaded', () => {
+      renderTeachView();
+    });
+  </script>
+</body></html>
